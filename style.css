@@ -47,7 +47,19 @@ table {
 	border-spacing: 0;
 }
 
-#reveal{
-    width:30px;
-    height: 30px;
+
+/* Start of the actual css */
+
+html{
+	width: auto;
+}
+
+img{
+	width: 100%;
+	margin: auto;
+
+}
+
+#container{
+	background-image: url('https://api.nasa.gov/planetary/apod?api_key=f41M4YrhaDGpFaIMrptDsj5a0DXCrB6tN29ajYmp&date=2021-12-4&thumbs=True');
 }
