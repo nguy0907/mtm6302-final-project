@@ -43,7 +43,7 @@ timerCounting = setInterval(function (){
 
     $timerDate.innerHTML =`
     <div> 
-    <p> Minutes ${toMinutes(timerCount)}</p> 
+    <p> Minutes   ${toMinutes(timerCount)}</p> 
     <p> Seconds ${toSeconds(timerCount)} </p>
     </div>
     
@@ -66,7 +66,7 @@ switch ($settings.elements['date'].value){
     break
 
     case '1':
-// $dateTimeDisplay.innerHTML = today
+$dateTimeDisplay.innerHTML = today
 $dateDisplay.innerHTML = ''
     break
 
