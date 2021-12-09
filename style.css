@@ -52,6 +52,8 @@ table {
 
 html{
 	width: auto;
+	text-align: center;
+	background-image:url('https://api.nasa.gov/planetary/apod?api_key=f41M4YrhaDGpFaIMrptDsj5a0DXCrB6tN29ajYmp&date=2021-12-4&thumbs=True');
 }
 
 img{
@@ -62,4 +64,19 @@ img{
 
 #container{
 	background-image: url('https://api.nasa.gov/planetary/apod?api_key=f41M4YrhaDGpFaIMrptDsj5a0DXCrB6tN29ajYmp&date=2021-12-4&thumbs=True');
+}
+
+h2{
+	font-size: 30px;
+	margin-top:3rem;
+}
+
+#dateOptions{
+	margin-top:2rem;
+	margin-bottom:2rem;
+}
+
+#timeOptions{
+	margin-top: 2rem;
+	margin-bottom: 2rem;
 }

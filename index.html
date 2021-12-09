@@ -10,15 +10,30 @@
 </head>
 <body>
     <div id='container'>
-
+  <div id='timerDate'> 
+      <p></p>
+      <p></p>
+     <p></p>
+  </div>
         <img src="" alt="">
         <p id='dateDisplay'></p>
         <p id='dateTimeDisplay'></p> 
-
-        <div id='timerDate'>
-        
-        </div>
     </div>
+    
+    <form id='settings'>
+   <h2> Settings</h2>
+
+   <div id='dateOptions'> 
+<label><input name='date' type='radio' value='0'>Full Date</label>
+<label><input name='date' type='radio' value='1'>None</label>
+</div>
+
+<div id='timeOptions'> 
+    <label><input name='time' type='radio' value='0'>Minute and Second Clock</label>
+    <label><input name='time' type='radio' value='1'>Full Time Clock</label>
+    </div>
+<button type="submit">Change</button>
+</form>
     <script src='script.js'></script>
 </body>
 </html>
