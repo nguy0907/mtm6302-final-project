@@ -87,6 +87,10 @@ font-size: 30px;
 	margin-bottom:2rem;
 }
 
+#dateTimeDisplay{
+	margin-bottom: 2rem;
+}
+
 #timeOptions{
 	margin-top: 2rem;
 	margin-bottom: 2rem;
@@ -94,4 +98,15 @@ font-size: 30px;
 
 button{
 	margin-bottom:2rem;
+}
+
+#information{
+	margin-bottom: 2rem;
+}
+
+.click{
+	display: none;
+}
+.settingclick{
+	display: none;
 }

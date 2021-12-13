@@ -1,12 +1,12 @@
 //data
-const $dateDisplay = document.getElementById('dateDisplay')
+const $information = document.getElementById('information')
 const $dateTimer = document.getElementById('dateTimer')
 const $dateTimeDisplay = document.getElementById('dateTimeDisplay')
 const $timerDate = document.getElementById('timerDate')
 const $dateOptions = document.getElementById('dateOptions')
 const $settings = document.getElementById('settings')
 const $allData = document.getElementById('allData')
-
+const $settingsButton = document.getElementById('settingsButton')
 const today = new Date()
 const date = new Date()
 
@@ -58,43 +58,6 @@ function toMinutes(ms) {
     }
 timer = setInterval(function (){
     clockTimer += 1000
-
-
-}, 1000)
-
-$allData.addEventListener('click', function(){
-    $dateDisplay.innerHTML = today.getMonth(month)
-})
-
-
-$settings.addEventListener('submit', function(event){
-    event.preventDefault()
-
-    // This is the option for the date display
-
-    for (let i=0; i<$settings.elements.length; i++){
-        console.log($settings.elements['date'].value)
-   
-
-switch ($settings.elements['date'].value){
-    case '0':
-        $dateDisplay.innerHTML = today.toDateString()
-        $dateTimeDisplay.innerHTML = ''
-    break
-
-    case '1':
-// $dateTimeDisplay.innerHTML = today
-$dateDisplay.innerHTML = today.toLocaleDateString()
-    break
-
-    case '2':
-        // $dateTimeDisplay.innerHTML = today
-        $dateDisplay.innerHTML = ''
-            break
-
-   }
-}
-  //This is the option for the time display
   for (let i=0; i<$settings.elements.length; i++){
     console.log($settings.elements['time'].value)
 
@@ -110,6 +73,50 @@ break
 
 }
 }
+
+}, 1000)
+
+$allData.addEventListener('click', function(){
+
+    if ($information){
+$information.classList.toggle('click')
+    }
+
+    $information.innerHTML = `Day: ${today.getDate()}
+    Month: ${today.getMonth()}
+    Year: ${today.getFullYear()}`
+})
+
+
+$settings.addEventListener('submit', function(event){
+    event.preventDefault()
+
+    // This is the option for the date display
+
+    for (let i=0; i<$settings.elements.length; i++){
+        console.log($settings.elements['date'].value)
+   
+
+switch ($settings.elements['date'].value){
+    case '0':
+        $dateTimeDisplay.innerHTML = today.toDateString()
+
+    break
+
+    case '1':
+// $dateTimeDisplay.innerHTML = today
+$dateTimeDisplay.innerHTML = today.toLocaleDateString()
+    break
+
+    case '2':
+        // $dateTimeDisplay.innerHTML = today
+        $dateTimeDisplay.innerHTML = ''
+            break
+
+   }
+}
+  //This is the option for the time display
+
 
 })
 
