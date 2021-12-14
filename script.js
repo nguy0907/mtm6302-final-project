@@ -30,29 +30,28 @@ const month =  [
 
 function runTheClock(){
     const today = new Date()
-    const timer = today.getHours() + ':'+ today.getMinutes() + ':' + today.getSeconds()
-    $timerDate.innerHTML = timer
-    
+
+  switch ($settings.elements['time'].value){
+case '0':
+    $timerDate.innerHTML =  today.getHours() + ':'+ today.getMinutes()
+break
+
+case '1':
+    $timerDate.innerHTML =  today.getHours() + ':'+ today.getMinutes() + ':' + today.getSeconds()
+break
+
+}  
     setTimeout(runTheClock,1000)
     }
     
     runTheClock()
    
-//   for (let i=0; i<$settings.elements.length; i++){
-//     console.log($settings.elements['time'].value)
+  for (let i=0; i<$settings.elements.length; i++){
+    console.log($settings.elements['time'].value)
 
 
-// switch ($settings.elements['time'].value){
-// case '0':
-//     $timerDate.innerHTML =  today.getHours()  + ':' +  today.getMinutes()
-// break
 
-// case '1':
-//     $timerDate.innerHTML =today.getHours()  + ':' + today.getMinutes()+ ':' + today.getSeconds()
-// break
-
-// }
-// }
+}
 
 
 
