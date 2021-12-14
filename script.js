@@ -7,8 +7,7 @@ const $dateOptions = document.getElementById('dateOptions')
 const $settings = document.getElementById('settings')
 const $allData = document.getElementById('allData')
 const $settingsButton = document.getElementById('settingsButton')
-const today = new Date()
-const date = new Date()
+
 
 //Month array
 const month =  [
@@ -28,53 +27,34 @@ const month =  [
 
 //Timer Section
 
-let clockTimer = today.getTime()
 
-function toDays(ms) {
-    return Math.floor(ms / 1000 / 60 / 60 / 24)
-}
-
-function toHours(ms) {
-    const days = toDays(ms)
-    const hours = Math.floor(ms / 1000 / 60 / 60)
-    const hoursLeft = hours - (days * 24)
-
-    return hoursLeft
-}
-
-function toMinutes(ms) {
-    const days = toDays(ms)
-    const hours = toHours(ms)
-    const minutes = Math.floor(ms / 1000 / 60)
-    const minutesLeft = minutes - (hours * 60) - (days * 24 * 60)
-
-    return minutesLeft
-
-}
-
-    function toSeconds(ms) {
-        const seconds = Math.floor((ms % (1000 * 60)) / 1000)
-        return seconds
+function runTheClock(){
+    const today = new Date()
+    const timer = today.getHours() + ':'+ today.getMinutes() + ':' + today.getSeconds()
+    $timerDate.innerHTML = timer
+    
+    setTimeout(runTheClock,1000)
     }
-timer = setInterval(function (){
-    clockTimer += 1000
-  for (let i=0; i<$settings.elements.length; i++){
-    console.log($settings.elements['time'].value)
+    
+    runTheClock()
+   
+//   for (let i=0; i<$settings.elements.length; i++){
+//     console.log($settings.elements['time'].value)
 
 
-switch ($settings.elements['time'].value){
-case '0':
-    $timerDate.innerHTML = toHours(clockTimer) -5 + ':' + toMinutes(clockTimer)
-break
+// switch ($settings.elements['time'].value){
+// case '0':
+//     $timerDate.innerHTML =  today.getHours()  + ':' +  today.getMinutes()
+// break
 
-case '1':
-    $timerDate.innerHTML =toHours(clockTimer) -5 + ':' + toMinutes(clockTimer)+ ':' + toSeconds(clockTimer)
-break
+// case '1':
+//     $timerDate.innerHTML =today.getHours()  + ':' + today.getMinutes()+ ':' + today.getSeconds()
+// break
 
-}
-}
+// }
+// }
 
-}, 1000)
+
 
 $allData.addEventListener('click', function(){
 
@@ -122,7 +102,7 @@ $dateTimeDisplay.innerHTML = today.toLocaleDateString()
 
 
 
-fetch('https://api.nasa.gov/planetary/apod?api_key=f41M4YrhaDGpFaIMrptDsj5a0DXCrB6tN29ajYmp&date=2021-12-13&thumbs=True')
+fetch('https://api.nasa.gov/planetary/apod?api_key=f41M4YrhaDGpFaIMrptDsj5a0DXCrB6tN29ajYmp&date=2021-12-14&thumbs=True')
 
 
 
