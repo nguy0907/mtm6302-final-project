@@ -68,6 +68,13 @@ $information.classList.toggle('click')
 })
 
 
+$settingsButton.addEventListener('click', function(){
+    if ($settings){
+        $settings.classList.toggle('openSettings')
+    }
+})
+
+
 $settings.addEventListener('submit', function(event){
     event.preventDefault()
 
