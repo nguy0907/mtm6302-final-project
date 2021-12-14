@@ -7,7 +7,7 @@ const $dateOptions = document.getElementById('dateOptions')
 const $settings = document.getElementById('settings')
 const $allData = document.getElementById('allData')
 const $settingsButton = document.getElementById('settingsButton')
-
+const today = new Date()
 
 //Month array
 const month =  [
@@ -30,7 +30,7 @@ const month =  [
 
 function runTheClock(){
     const today = new Date()
-
+    $timerDate.innerHTML =  today.getHours() + ':'+ today.getMinutes() + ':' + today.getSeconds()
   switch ($settings.elements['time'].value){
 case '0':
     $timerDate.innerHTML =  today.getHours() + ':'+ today.getMinutes()
@@ -39,6 +39,7 @@ break
 case '1':
     $timerDate.innerHTML =  today.getHours() + ':'+ today.getMinutes() + ':' + today.getSeconds()
 break
+
 
 }  
     setTimeout(runTheClock,1000)
