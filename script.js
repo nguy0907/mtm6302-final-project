@@ -64,11 +64,11 @@ timer = setInterval(function (){
 
 switch ($settings.elements['time'].value){
 case '0':
-    $timerDate.innerHTML = toHours(clockTimer) -4 + ':' + toMinutes(clockTimer)
+    $timerDate.innerHTML = toHours(clockTimer) -5 + ':' + toMinutes(clockTimer)
 break
 
 case '1':
-    $timerDate.innerHTML =toHours(clockTimer) -4 + ':' + toMinutes(clockTimer)+ ':' + toSeconds(clockTimer)
+    $timerDate.innerHTML =toHours(clockTimer) -5 + ':' + toMinutes(clockTimer)+ ':' + toSeconds(clockTimer)
 break
 
 }
