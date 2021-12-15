@@ -35,10 +35,13 @@ function runTheClock(){
   switch ($settings.elements['time'].value){
 case '0':
     $timerDate.innerHTML =  today.getHours() + ':'+ today.getMinutes()
+    localStorage.setItem('Hour and Minutes Clock', today.getHours() + ':'+ today.getMinutes())
+    
 break
 
 case '1':
     $timerDate.innerHTML =  today.getHours() + ':'+ today.getMinutes() + ':' + today.getSeconds()
+    localStorage.setItem('Full Time Clock',  today.getHours() + ':'+ today.getMinutes() + ':' + today.getSeconds())
 break
 
 
@@ -85,17 +88,20 @@ $settings.addEventListener('submit', function(event){
 switch ($settings.elements['date'].value){
     case '0':
         $dateTimeDisplay.innerHTML = today.toDateString()
+        localStorage.setItem('Full Date', today.toDateString())
 
     break
 
     case '1':
 // $dateTimeDisplay.innerHTML = today
 $dateTimeDisplay.innerHTML = today.toLocaleDateString()
+localStorage.setItem('Simple Date', today.toLocaleDateString())
     break
 
     case '2':
         // $dateTimeDisplay.innerHTML = today
         $dateTimeDisplay.innerHTML = ''
+        localStorage.setItem('None', '')
             break
 
    }
