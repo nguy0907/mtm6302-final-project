@@ -7,8 +7,11 @@ const $dateOptions = document.getElementById('dateOptions')
 const $settings = document.getElementById('settings')
 const $allData = document.getElementById('allData')
 const $settingsButton = document.getElementById('settingsButton')
+const $background = document.getElementById('background')
 
 const today = new Date()
+
+
 
 //Month array
 const month =  [
@@ -29,19 +32,23 @@ const month =  [
 //Timer Section
 
 
+
 function runTheClock(){
     const today = new Date()
     $timerDate.innerHTML =  today.getHours() + ':'+ today.getMinutes() + ':' + today.getSeconds()
-  switch ($settings.elements['time'].value){
+
+    localStorage.setItem('Full Time Clock',  today.getHours() + ':'+ today.getMinutes() + ':' + today.getSeconds())
+  
+    switch ($settings.elements['time'].value){
 case '0':
     $timerDate.innerHTML =  today.getHours() + ':'+ today.getMinutes()
-    localStorage.setItem('Hour and Minutes Clock', today.getHours() + ':'+ today.getMinutes())
+    localStorage.setItem('Clock Options', 'Hour and Minutes Clock')
     
 break
 
 case '1':
     $timerDate.innerHTML =  today.getHours() + ':'+ today.getMinutes() + ':' + today.getSeconds()
-    localStorage.setItem('Full Time Clock',  today.getHours() + ':'+ today.getMinutes() + ':' + today.getSeconds())
+    localStorage.setItem('Clock Options', 'Full Time Clock')
 break
 
 
@@ -88,20 +95,20 @@ $settings.addEventListener('submit', function(event){
 switch ($settings.elements['date'].value){
     case '0':
         $dateTimeDisplay.innerHTML = today.toDateString()
-        localStorage.setItem('Full Date', today.toDateString())
+        localStorage.setItem('Date Option', 'Full Date')
 
     break
 
     case '1':
 // $dateTimeDisplay.innerHTML = today
 $dateTimeDisplay.innerHTML = today.toLocaleDateString()
-localStorage.setItem('Simple Date', today.toLocaleDateString())
+localStorage.setItem('Date Option', 'Simple Date')
     break
 
     case '2':
         // $dateTimeDisplay.innerHTML = today
         $dateTimeDisplay.innerHTML = ''
-        localStorage.setItem('None', '')
+        localStorage.setItem('Date Option', 'None')
             break
 
    }

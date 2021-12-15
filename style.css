@@ -70,6 +70,10 @@ h2{
 	margin-top:3rem;
 }
 
+#greetings{
+	margin-top:2rem;	
+}
+
 #timerDate{
 	font-size: 60px;
 	margin-top:2rem;
@@ -96,7 +100,16 @@ h2{
 }
 
 button{
+	font-family: 'Readex Pro', sans-serif;
+	color:#F0EDEE;
+	background-color:#242038;
+	font-size: 15px;
 	margin-bottom:2rem;
+	padding-left:1em;
+	padding-right:1em;
+padding-top: 0.5em;
+padding-bottom: 0.5em;	
+border-radius: 5px;
 }
 
 #information{
