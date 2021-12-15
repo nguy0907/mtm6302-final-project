@@ -7,6 +7,7 @@ const $dateOptions = document.getElementById('dateOptions')
 const $settings = document.getElementById('settings')
 const $allData = document.getElementById('allData')
 const $settingsButton = document.getElementById('settingsButton')
+
 const today = new Date()
 
 //Month array
@@ -47,12 +48,9 @@ break
     
     runTheClock()
    
-  for (let i=0; i<$settings.elements.length; i++){
-    console.log($settings.elements['time'].value)
-
-
-
-}
+//   for (let i=0; i<$settings.elements.length; i++){
+//     console.log($settings.elements['time'].value)
+// }
 
 
 
@@ -119,7 +117,7 @@ fetch('https://api.nasa.gov/planetary/apod?api_key=f41M4YrhaDGpFaIMrptDsj5a0DXCr
 })
 
 .then(function (imageData){
-    console.log(imageData)
+    console.log(imageData.media_type)
 
 
 if (imageData.media_type === 'video'){
@@ -131,4 +129,3 @@ if (imageData.media_type === 'video'){
 })
 
 
-//Timer Section
