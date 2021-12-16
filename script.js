@@ -7,9 +7,10 @@ const $dateOptions = document.getElementById('dateOptions')
 const $settings = document.getElementById('settings')
 const $allData = document.getElementById('allData')
 const $settingsButton = document.getElementById('settingsButton')
-const $background = document.getElementById('background')
+const $greetings = document.getElementById('greetings')
 
 const today = new Date()
+
 
 
 
@@ -34,8 +35,21 @@ const month =  [
 
 
 function runTheClock(){
-    const today = new Date()
-    $timerDate.innerHTML =  today.getHours() + ':'+ today.getMinutes() + ':' + today.getSeconds()
+
+ const today = new Date()
+    
+if (today.getHours() < 12){
+$greetings.innerHTML = 'Good Morning! It is Currently'
+
+} else if  (today.getHours() > 12 && today.getHours() <17){
+    $greetings.innerHTML = 'Good Afternoon! It is Currently'
+
+} else if  (today.getHours() > 17 && today.getHours() <23){
+    $greetings.innerHTML = 'Good Afternoon! It is Currently'
+}
+
+
+   $timerDate.innerHTML =  today.getHours() + ':'+ today.getMinutes() + ':' + today.getSeconds()
 
     localStorage.setItem('Full Time Clock',  today.getHours() + ':'+ today.getMinutes() + ':' + today.getSeconds())
   
@@ -139,19 +153,19 @@ fetch('https://api.nasa.gov/planetary/apod?api_key=f41M4YrhaDGpFaIMrptDsj5a0DXCr
 })
 
 .then(function (imageData){
-    const picture = imageData.hdurl
-    console.log(imageData.media_type)
+
+    console.log(imageData.date)
 
    
 
 if (imageData.media_type === 'video'){
-    document.querySelector('p').textContent = 'APOD is a video'
-
+    // document.querySelector('p').textContent = 'APOD is a video'
+    document.body.style.backgroundImage = `url(${imageData.media_type})`; 
 
 
 } else {
     // document.querySelector('img').setAttribute('src', imageData.hdurl)
-  document.body.style.backgroundImage = `url(${picture})`; 
+  document.body.style.backgroundImage = `url(${imageData.hdurl})`; 
 }
 })
 

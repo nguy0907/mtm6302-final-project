@@ -9,17 +9,13 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-      <img id='imageOfTheDay' src="" alt="">
+      <!-- <img id='imageOfTheDay' src="" alt=""> -->
     <div id='container'>
-        <p id='greetings'>Greetings! Today is currently</p>
+        <p id='greetings'></p>
         <p id='timerDate'> </p>
     </div>
     
-<button id='allData'>Show all Data</button>
-<div id='information'>
 
-</div>
-  
 
 <p id='dateTimeDisplay'></p> 
 <button id='settingsButton'>Show Settings</button>
@@ -28,7 +24,10 @@
 
    <div id='dateOptions'> 
 <label><input name='date' type='radio' value='0'>Full Date</label>
+<br> <br>
 <label><input name='date' type='radio' value='1'>Simple Date</label>
+<br><br>
+
 <label><input name='date' type='radio' value='2'>None</label>
 </div>
 
@@ -41,7 +40,11 @@
 
 </form>
 
+<button id='allData'>Show all Data</button>
+<div id='information'>
 
+</div>
+  
 
     <script src='script.js'></script>
 </body>

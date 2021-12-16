@@ -86,8 +86,13 @@ h2{
 	margin-bottom: 2rem;
 }
 #dateOptions{
+	display: block;
 	margin-top:2rem;
 	margin-bottom:2rem;
+}
+
+input{
+	text-align: center;
 }
 
 #dateTimeDisplay{
@@ -121,4 +126,8 @@ border-radius: 5px;
 }
 .openSettings{
 	display: none;
+}
+
+#allData{
+	margin-top:10rem;
 }
