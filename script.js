@@ -35,13 +35,13 @@ function runTheClock() {
     switch ($settings.elements['time'].value) {
         case '0':
             $timerDate.innerHTML = today.getHours() + ':' + today.getMinutes()
-            localStorage.setItem('clockOptions', today.getHours() + ':' + today.getMinutes())
+            localStorage.setItem('clockOptions', 'Hour and Minutes Clock')
 
             break
 
         case '1':
             $timerDate.innerHTML = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds()
-            localStorage.setItem('clockOptions', today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds())
+            localStorage.setItem('clockOptions', 'Full Time Clock')
             break
 
 
@@ -60,7 +60,7 @@ $allData.addEventListener('click', function () {
 
     $information.innerHTML = `<p> Day: ${today.getDate()} </p> 
                             <br>
-                             <p> Month: ${today.getMonth()}</p>
+                             <p> Month: ${today.getMonth()+1}</p>
                              <br>
                              <p> Year: ${today.getFullYear()}</p> `
 })
@@ -112,7 +112,7 @@ $settings.addEventListener('submit', function (event) {
 function initialize() {
     const storedOptions = localStorage.getItem('clockOptions')
 
-    if (storedOptions) {
+    if (storedOptions ==="Hour and Minutes Clock") {
         runTheClock(storedOptions)
         // $timerDate.innerHTML = today.getHours() + ':' + today.getMinutes()
         // localStorage.setItem('clockOptions', 'Hour and Minutes Clock')
