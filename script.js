@@ -12,12 +12,12 @@ const $greetings = document.getElementById('greetings')
 const today = new Date()
 
 
-
+//Clock timer
 
 function runTheClock() {
 
     const today = new Date()
-    //This is the greeting part wher
+    //This is the greeting part where a certain statement will shown depending on the time
     if (today.getHours() < 12) {
         $greetings.innerHTML = 'Good Morning! It is Currently'
 
