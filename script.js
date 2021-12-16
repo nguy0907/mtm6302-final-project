@@ -72,7 +72,7 @@ function runTheClock() {
     setTimeout(runTheClock, 1000)
 }
 
-runTheClock()
+
 
 //   for (let i=0; i<$settings.elements.length; i++){
 //     console.log($settings.elements['time'].value)
@@ -139,8 +139,7 @@ function initialize() {
 
     if (storedOptions) {
         runTheClock(storedOptions)
-        $timerDate.innerHTML = today.getHours() + ':' + today.getMinutes()
-        localStorage.setItem('clockOptions', 'Hour and Minutes Clock')
+     
 
 
     } else {
@@ -172,5 +171,5 @@ fetch('https://api.nasa.gov/planetary/apod?api_key=f41M4YrhaDGpFaIMrptDsj5a0DXCr
         }
     })
 
-
+runTheClock()
 initialize()
