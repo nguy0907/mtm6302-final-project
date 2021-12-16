@@ -131,3 +131,22 @@ border-radius: 5px;
 #allData{
 	margin-top:10rem;
 }
+
+@media screen and (min-width:850px){
+#dateOptions{
+	display: flex;
+	justify-content: center;
+margin: auto;
+margin-top: 2rem;
+margin-bottom:1rem;
+
+}
+
+#timeOptions{
+	display: flex;
+	justify-content: center;
+margin: auto;
+margin-top: 2rem;
+}
+	
+}

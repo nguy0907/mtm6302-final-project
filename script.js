@@ -32,12 +32,15 @@ const month =  [
 
 //Timer Section
 
+// if (today.getDate()){
+// console.log('hi')
+// }
 
 
 function runTheClock(){
 
  const today = new Date()
-    
+    //This is the greeting part wher
 if (today.getHours() < 12){
 $greetings.innerHTML = 'Good Morning! It is Currently'
 
@@ -45,24 +48,23 @@ $greetings.innerHTML = 'Good Morning! It is Currently'
     $greetings.innerHTML = 'Good Afternoon! It is Currently'
 
 } else if  (today.getHours() > 17 && today.getHours() <23){
-    $greetings.innerHTML = 'Good Afternoon! It is Currently'
+    $greetings.innerHTML = 'Good Evening! It is Currently'
 }
-
 
    $timerDate.innerHTML =  today.getHours() + ':'+ today.getMinutes() + ':' + today.getSeconds()
 
-    localStorage.setItem('Full Time Clock',  today.getHours() + ':'+ today.getMinutes() + ':' + today.getSeconds())
+    localStorage.setItem('currentTime',  today.getHours() + ':'+ today.getMinutes() + ':' + today.getSeconds())
   
     switch ($settings.elements['time'].value){
 case '0':
     $timerDate.innerHTML =  today.getHours() + ':'+ today.getMinutes()
-    localStorage.setItem('Clock Options', 'Hour and Minutes Clock')
+    localStorage.setItem('clockOptions', 'Hour and Minutes Clock')
     
 break
 
 case '1':
     $timerDate.innerHTML =  today.getHours() + ':'+ today.getMinutes() + ':' + today.getSeconds()
-    localStorage.setItem('Clock Options', 'Full Time Clock')
+    localStorage.setItem('clockOptions', 'Full Time Clock')
 break
 
 
@@ -76,8 +78,6 @@ break
 //     console.log($settings.elements['time'].value)
 // }
 
-
-
 $allData.addEventListener('click', function(){
 
     if ($information){
@@ -85,8 +85,8 @@ $information.classList.toggle('click')
     }
 
     $information.innerHTML = `Day: ${today.getDate()}
-    Month: ${today.getMonth()}
-    Year: ${today.getFullYear()}`
+                              Month: ${today.getMonth()}
+                              Year: ${today.getFullYear()}`
 })
 
 
@@ -94,6 +94,8 @@ $settingsButton.addEventListener('click', function(){
     if ($settings){
         $settings.classList.toggle('openSettings')
     }
+
+
 })
 
 
@@ -101,9 +103,6 @@ $settings.addEventListener('submit', function(event){
     event.preventDefault()
 
     // This is the option for the date display
-
-    for (let i=0; i<$settings.elements.length; i++){
-        console.log($settings.elements['date'].value)
    
 
 switch ($settings.elements['date'].value){
@@ -127,23 +126,29 @@ localStorage.setItem('Date Option', 'Simple Date')
            
    }
 
-}
+
   //This is the option for the time display
 
 
 })
-     const storedOptions = localStorage.getItem('Clock Options')
-function initialization(){
+    
+function initialize(){
+ const storedOptions = localStorage.getItem('clockOptions')
 
+    if (storedOptions = '0'){
+        runTheClock(storedOptions) 
+        $timerDate.innerHTML =  today.getHours() + ':'+ today.getMinutes()
+        localStorage.setItem('clockOptions', 'Hour and Minutes Clock')
 
-    if (storedOptions){
-        runTheClock(storedOptions)   
+     
+       
     } else{
         runTheClock($settings.elements['time'].value)    
     }
 }
 
-fetch('https://api.nasa.gov/planetary/apod?api_key=f41M4YrhaDGpFaIMrptDsj5a0DXCrB6tN29ajYmp&date=2021-12-14&thumbs=True')
+
+fetch('https://api.nasa.gov/planetary/apod?api_key=f41M4YrhaDGpFaIMrptDsj5a0DXCrB6tN29ajYmp&date=2021-12-15&thumbs=True')
 
 
 
@@ -153,15 +158,12 @@ fetch('https://api.nasa.gov/planetary/apod?api_key=f41M4YrhaDGpFaIMrptDsj5a0DXCr
 })
 
 .then(function (imageData){
-
     console.log(imageData.date)
-
    
 
 if (imageData.media_type === 'video'){
     // document.querySelector('p').textContent = 'APOD is a video'
     document.body.style.backgroundImage = `url(${imageData.media_type})`; 
-
 
 } else {
     // document.querySelector('img').setAttribute('src', imageData.hdurl)
@@ -170,3 +172,4 @@ if (imageData.media_type === 'video'){
 })
 
 
+initialize()
