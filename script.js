@@ -14,29 +14,6 @@ const today = new Date()
 
 
 
-//Month array
-const month = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-]
-
-//Timer Section
-
-// if (today.getDate()){
-// console.log('hi')
-// }
-
-
 function runTheClock() {
 
     const today = new Date()
@@ -58,13 +35,13 @@ function runTheClock() {
     switch ($settings.elements['time'].value) {
         case '0':
             $timerDate.innerHTML = today.getHours() + ':' + today.getMinutes()
-            localStorage.setItem('clockOptions', 'Hour and Minutes Clock')
+            localStorage.setItem('clockOptions', today.getHours() + ':' + today.getMinutes())
 
             break
 
         case '1':
             $timerDate.innerHTML = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds()
-            localStorage.setItem('clockOptions', 'Full Time Clock')
+            localStorage.setItem('clockOptions', today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds())
             break
 
 
@@ -74,9 +51,6 @@ function runTheClock() {
 
 
 
-//   for (let i=0; i<$settings.elements.length; i++){
-//     console.log($settings.elements['time'].value)
-// }
 
 $allData.addEventListener('click', function () {
 
@@ -134,12 +108,14 @@ $settings.addEventListener('submit', function (event) {
 
 })
 
+// Store and retrieve Data
 function initialize() {
     const storedOptions = localStorage.getItem('clockOptions')
 
     if (storedOptions) {
         runTheClock(storedOptions)
-     
+        // $timerDate.innerHTML = today.getHours() + ':' + today.getMinutes()
+        // localStorage.setItem('clockOptions', 'Hour and Minutes Clock')
 
 
     } else {
@@ -148,7 +124,7 @@ function initialize() {
 }
 
 
-fetch('https://api.nasa.gov/planetary/apod?api_key=f41M4YrhaDGpFaIMrptDsj5a0DXCrB6tN29ajYmp&date=2021-12-15&thumbs=True')
+fetch('https://api.nasa.gov/planetary/apod?api_key=f41M4YrhaDGpFaIMrptDsj5a0DXCrB6tN29ajYmp&date=2021-12-16&thumbs=True')
 
 
 
