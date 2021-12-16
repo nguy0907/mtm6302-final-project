@@ -110,15 +110,24 @@ localStorage.setItem('Date Option', 'Simple Date')
         $dateTimeDisplay.innerHTML = ''
         localStorage.setItem('Date Option', 'None')
             break
-
+           
    }
+
 }
   //This is the option for the time display
 
 
 })
+     const storedOptions = localStorage.getItem('Clock Options')
+function initialization(){
 
 
+    if (storedOptions){
+        runTheClock(storedOptions)   
+    } else{
+        runTheClock($settings.elements['time'].value)    
+    }
+}
 
 fetch('https://api.nasa.gov/planetary/apod?api_key=f41M4YrhaDGpFaIMrptDsj5a0DXCrB6tN29ajYmp&date=2021-12-14&thumbs=True')
 
@@ -130,14 +139,19 @@ fetch('https://api.nasa.gov/planetary/apod?api_key=f41M4YrhaDGpFaIMrptDsj5a0DXCr
 })
 
 .then(function (imageData){
+    const picture = imageData.hdurl
     console.log(imageData.media_type)
 
+   
 
 if (imageData.media_type === 'video'){
     document.querySelector('p').textContent = 'APOD is a video'
 
+
+
 } else {
-    document.querySelector('img').setAttribute('src', imageData.hdurl)
+    // document.querySelector('img').setAttribute('src', imageData.hdurl)
+  document.body.style.backgroundImage = `url(${picture})`; 
 }
 })
 
