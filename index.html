@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,43 +9,49 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+
 <body>
-      <!-- <img id='imageOfTheDay' src="" alt=""> -->
+    <!-- <img id='imageOfTheDay' src="" alt=""> -->
     <div id='container'>
         <p id='greetings'></p>
         <p id='timerDate'> </p>
-        <p id='dateTimeDisplay'></p> 
-    
-       
-<button id='allData'>Show all Data</button>
- <div id='information'></div>
+        <p id='dateTimeDisplay'></p>
 
-<button id='settingsButton'>Show Settings</button>
-    <form id='settings'>
-   <h2> Settings</h2>
 
-   <div id='dateOptions'> 
-<label><input name='date' type='radio' value='0'>Full Date</label>
-<br> <br>
-<label><input name='date' type='radio' value='1'>Simple Date</label>
-<br><br>
+        <button id='allData'>Show all Data</button>
+        <br>
+        <div id='information'>
+            <p></p>
+            <p></p>
+            <p></p>
+        </div>
 
-<label><input name='date' type='radio' value='2'>None</label>
-</div>
+        <button id='settingsButton'>Show Settings</button>
+        <form id='settings'>
+            <h2> Settings</h2>
 
-<button id='updateSetting' type="submit">Change</button>
+            <div id='dateOptions'>
+                <label><input name='date' type='radio' value='0'>Full Date</label>
+                <br> <br>
+                <label><input name='date' type='radio' value='1'>Simple Date</label>
+                <br><br>
+                <label><input name='date' type='radio' value='2'>None</label>
+            </div>
 
-<div id='timeOptions'> 
-    <label><input name='time' type='radio' value='0'>Hour and Minutes Clock</label>
-    <br> <br>
-    <label><input name='time' type='radio' value='1'>Full Time Clock</label>
-    <br> <br>
+            <button id='updateSetting' type="submit">Change</button>
+
+            <div id='timeOptions'>
+                <label><input name='time' type='radio' value='0'>Hour and Minutes Clock</label>
+                <br> <br>
+                <label><input name='time' type='radio' value='1'>Full Time Clock</label>
+                <br> <br>
+            </div>
+
+        </form>
     </div>
-
-</form>
- </div>
 
 
     <script src='script.js'></script>
 </body>
+
 </html>
